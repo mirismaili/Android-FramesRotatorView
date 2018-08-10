@@ -1,7 +1,5 @@
 package ir.openside.frameanimatorsample;
 
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -11,18 +9,10 @@ import android.graphics.Canvas;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.RotateDrawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
-import android.util.Property;
-import android.view.animation.Animation;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.RotateAnimation;
-
-import static android.view.animation.Animation.INFINITE;
-import static android.view.animation.Animation.RELATIVE_TO_SELF;
 
 /**
  * Created by S. Mahdi Mir-Ismaili on 1397/5/18 (09/08/2018).
@@ -32,8 +22,6 @@ public class FramesAnimatorView extends AppCompatImageView {
 	private int framesCount;
 	private int duration;
 	private Bitmap frameBitmap;
-	private RotateDrawable rotateDrawable;
-	public static final int MAX_ROTATE_DRAWABLE_LEVEL = 10000;
 	
 	public FramesAnimatorView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
@@ -120,37 +108,43 @@ public class FramesAnimatorView extends AppCompatImageView {
 		return bitmap;
 	}
 	
-	/**
-	 * Based on <a href="https://stackoverflow.com/a/14996762/5318303">@vokilam's answer on stackoverflow.com</a>.
-	 */
-	public void method1(final int frameCount, final int duration) {
-		// final Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.progress_anim);
-		final Animation animation = new RotateAnimation(
-				0f, 360f, RELATIVE_TO_SELF, 0.5f, RELATIVE_TO_SELF, 0.5f);
-		animation.setRepeatCount(INFINITE);
-		animation.setDuration(duration);
-		animation.setInterpolator(t -> (float) Math.floor(t * frameCount) / frameCount);
-		startAnimation(animation);
-	}
+	//region Method1:
 	
-	private void method2() {
-		final ObjectAnimator animator = ObjectAnimator.ofInt(rotateDrawable,
-				new Property<RotateDrawable, Integer>(Integer.class, null) {
-					@Override public void set(RotateDrawable rotateDrawable, Integer value) {
-						rotateDrawable.setLevel(MAX_ROTATE_DRAWABLE_LEVEL * value / framesCount);
-					}
-					@Override public Integer get(RotateDrawable rotateDrawable) {
-						return rotateDrawable.getLevel() * framesCount / MAX_ROTATE_DRAWABLE_LEVEL;
-					}
-				}, 0, framesCount);
-		
-		animator.setDuration(duration).setRepeatCount(ValueAnimator.INFINITE);
-		animator.setInterpolator(new LinearInterpolator());
-		animator.start();
-	}
+	// /**
+	//  * Based on <a href="https://stackoverflow.com/a/14996762/5318303">@vokilam's answer on stackoverflow.com</a>.
+	//  */
+	// private void method1(final int frameCount, final int duration) {
+	// 	// final Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.progress_anim);
+	// 	final Animation animation = new RotateAnimation(
+	// 			0f, 360f, RELATIVE_TO_SELF, 0.5f, RELATIVE_TO_SELF, 0.5f);
+	// 	animation.setRepeatCount(INFINITE);
+	// 	animation.setDuration(duration);
+	// 	animation.setInterpolator(t -> (float) Math.floor(t * frameCount) / frameCount);
+	// 	startAnimation(animation);
+	// }
+	//endregion
 	
-	// A part of method2:
+	//region Method2:
 	
+	// private RotateDrawable rotateDrawable;
+	// private static final int MAX_ROTATE_DRAWABLE_LEVEL = 10000;
+	//
+	// private void method2() {
+	// 	final ObjectAnimator animator = ObjectAnimator.ofInt(rotateDrawable,
+	// 			new Property<RotateDrawable, Integer>(Integer.class, null) {
+	// 				@Override public void set(RotateDrawable rotateDrawable, Integer value) {
+	// 					rotateDrawable.setLevel(MAX_ROTATE_DRAWABLE_LEVEL * value / framesCount);
+	// 				}
+	// 				@Override public Integer get(RotateDrawable rotateDrawable) {
+	// 					return rotateDrawable.getLevel() * framesCount / MAX_ROTATE_DRAWABLE_LEVEL;
+	// 				}
+	// 			}, 0, framesCount);
+	//
+	// 	animator.setDuration(duration).setRepeatCount(ValueAnimator.INFINITE);
+	// 	animator.setInterpolator(new LinearInterpolator());
+	// 	animator.start();
+	// }
+	//
 	// @Override public void setImageResource(int resId) {
 	// 	Log.i("xxx", "setImageResource: ");
 	// 	rotateDrawable = new RotateDrawable();
@@ -171,4 +165,5 @@ public class FramesAnimatorView extends AppCompatImageView {
 	// 	rotateDrawable.setDrawable(new BitmapDrawable(getResources(), bm));
 	// 	super.setImageDrawable(rotateDrawable);
 	// }
+	//endregion
 }
