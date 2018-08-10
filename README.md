@@ -4,11 +4,13 @@ https://stackoverflow.com/questions/3760381/rotating-image-animation-list-or-ani
 
 Don't forget to insert these lines in `/res/attrs.xml` file:
 
-    <resources>
-        <!-- ... -->
-        <declare-styleable name="FramesAnimatorView">
-            <attr name="framesCount" format="integer"/>
-            <attr name="duration" format="integer" />
-        </declare-styleable>
-        <!-- ... -->
-    </resources>
+```xml
+<resources>
+    <!-- ... -->
+    <declare-styleable name="FramesAnimatorView">
+        <attr name="framesCount" format="integer"/>
+        <attr name="duration" format="integer" />
+    </declare-styleable>
+    <!-- ... -->
+</resources>
+```
