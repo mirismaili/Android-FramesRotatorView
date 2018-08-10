@@ -1,1 +1,1 @@
-# Android-FrameAnimatorView
+# Android-FramesAnimatorView
