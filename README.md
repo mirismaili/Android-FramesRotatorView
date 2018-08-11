@@ -16,3 +16,12 @@ Don't forget to insert these lines in `/res/attrs.xml` file:
     <!-- ... -->
 </resources>
 ```
+
+Sample usage (like `ImageView` but `android:src` or `app:srcCompat` drawable will rotating):
+
+```xml
+<ir.openside.frameanimatorsample.FramesAnimatorView
+		android:src="@drawable/ic_spinner"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" />
+```
