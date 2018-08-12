@@ -1,4 +1,4 @@
-package ir.openside.frameanimatorsample;
+package ir.openside.framesrotatorsample.framesrotator;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -14,31 +14,33 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 
+import ir.openside.framesrotatorsample.R;
+
 /**
  * Created by S. Mahdi Mir-Ismaili on 1397/5/18 (09/08/2018).
  * <a href="mailto:s.m.mirismaili@gmail.com">s.m.mirismaili@gmail.com</a>
  */
-public class FramesAnimatorView extends AppCompatImageView {
+public class FramesRotatorView extends AppCompatImageView {
 	private int framesCount;
 	private int duration;
 	private Bitmap frameBitmap;
 	
-	public FramesAnimatorView(Context context, AttributeSet attrs, int defStyle) {
+	public FramesRotatorView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		init(context, attrs);
 	}
 	
-	public FramesAnimatorView(Context context, AttributeSet attrs) {
+	public FramesRotatorView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		init(context, attrs);
 	}
 	
-	public FramesAnimatorView(Context context) { super(context); }
+	public FramesRotatorView(Context context) { super(context); }
 	
 	private void init(Context context, AttributeSet attrs) {
-		final TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.FramesAnimatorView);
-		framesCount = typedArray.getInt(R.styleable.FramesAnimatorView_framesCount, 12);
-		duration = typedArray.getInt(R.styleable.FramesAnimatorView_duration, 1200);
+		final TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.FramesRotatorView);
+		framesCount = typedArray.getInt(R.styleable.FramesRotatorView_framesCount, 12);
+		duration = typedArray.getInt(R.styleable.FramesRotatorView_duration, 1200);
 		typedArray.recycle();
 		
 		// Method 1: Use <rotate> as Animation (RotateAnimation) and startAnimation() (Rotate view itself).

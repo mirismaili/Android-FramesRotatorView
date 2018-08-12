@@ -20,7 +20,7 @@ Don't forget to insert these lines in `res/values/attrs.xml` file:
 Sample usage (like `ImageView` but `android:src` or `app:srcCompat` drawable will rotating):
 
 ```xml
-<ir.openside.frameanimatorsample.FramesAnimatorView
+<ir.openside.frameanimatorsample.FramesRotatorView
 		android:src="@drawable/ic_spinner"
 		app:framesCount="12"
 		app:duration="1200"		
