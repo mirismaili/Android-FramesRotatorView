@@ -1,15 +1,15 @@
-# Android-FramesAnimatorView
+# Android-FramesRotatorView
 Related to this post on stackoverflow.com:
 https://stackoverflow.com/a/51794993/5318303
 
-**See [FramesAnimatorView.java file](FramesAnimatorView.java).**
+**See [FramesRotatorView.java file](FramesRotatorView.java).**
 
 Don't forget to insert these lines in `res/values/attrs.xml` file:
 
 ```xml
 <resources>
     <!-- ... -->
-    <declare-styleable name="FramesAnimatorView">
+    <declare-styleable name="FramesRotatorView">
         <attr name="framesCount" format="integer"/>
         <attr name="duration" format="integer" />
     </declare-styleable>
@@ -30,7 +30,7 @@ Sample usage (like `ImageView` but `android:src` or `app:srcCompat` drawable wil
 
 [res/drawable/ic_spinner.xml](res/drawable/ic_spinner.xml):
 
-![ic_spinner.xml](https://cdn.rawgit.com/mirismaili/Android-FramesAnimatorView/62dea4e3/SampleDrawable.svg "Sample Drawable")
+![ic_spinner.xml](https://cdn.rawgit.com/mirismaili/Android-FramesRotatorView/62dea4e3/SampleDrawable.svg "Sample Drawable")
 
 Demo Video (for 128dp width and height):
 
