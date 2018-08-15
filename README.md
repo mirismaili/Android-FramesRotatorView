@@ -32,6 +32,6 @@ Sample usage (like `ImageView` but `android:src` or `app:srcCompat` drawable wil
 
 ![ic_spinner.xml](https://cdn.rawgit.com/mirismaili/Android-FramesRotatorView/5b217775/SampleDrawable.svg "Sample Drawable")
 
-Demo Video (when width and height are 128dp):
+Demo Video (with different sizes):
 
 ![ic_spinner.xml](FramesRotator-Sample.gif "Demo Video")
